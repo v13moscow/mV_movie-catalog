@@ -6,12 +6,13 @@ import { FaivoritsView } from './src/views/FaivoritsView'
 import{FilmView } from './src/views/FilmView'
 import{Routes} from './src/core/constans/routes'
 
+const root = document.getElementById('root')
 const routes = {
     [Routes.Main]: FilmsView,
     [Routes.Faivorits]: FaivoritsView,
     [Routes.Film]: FilmView,
 }
-const router = new Router(routes)
+const router = new Router(routes, root)
 const service = new FilmsService()
 const controller = new FilmsController(router, service)
 router.setController(controller)
