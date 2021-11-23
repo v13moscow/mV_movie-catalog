@@ -1,11 +1,15 @@
-export class FilmsController{
+export class FilmsController {
     #router
     #service
-    constructor(router, service){
+    constructor(router, service) {
       this.#router = router
       this.#service = service
     }
-    init(){
-console.log('_work_');
+    async init() {
+    const films = await this.#service.getFilms()
+    films.forEach(filmModel =>{
+     // console.log(filmModel.getTitle())
+    })
+    this.#router.init()
     }
 }
